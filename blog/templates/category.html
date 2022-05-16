@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %} Category {% endblock %} {% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+<div class="pt-5">
+  <h1 class="py-2 text-capitalize">List of {{catlist.cat}} Posts</h1>
+  <div class="row">
+      {% for post in catlist.posts %}
+      <div class="col-md-4 ">
+        <a class="link-col" href="{{post.get_absolute_url}}">
+          <div class="card mb-4 shadowy grid-cols">
+            <img
+              class="grid-img"
+              src="{{post.image.url}}"
+              alt="{{ post.title }}"
+            />
+            <div class="card-body ">
+            <h5 class="card-title text-capitalize">{{post.title|truncatechars:40}}</h5>
+            <p class="card-text">{{post.excerpt|truncatechars:40}}</p>
+           
+          </div>
+          <p class="post-date ">{{post.publish}}</p>
+        </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

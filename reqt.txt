@@ -1,0 +1,95 @@
+apt-get update && apt-get upgrade       ===== to update the server
+hostnamectl set-hostname django-blog     === to set up hostname
+hostname     == to check the hostname
+check the directory with pwd command
+nano /root/hosts  === to create ip address in nano editer and pass the
+enter the local ip address and the ip for linode server in there and save
+127.0.0.1       localhost
+194.195.250.94  django-blog
+
+
+
+you can add thi line to ad pc to trusted server
+ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+
+ssh root@45.79.238.27
+pass: 147147..Dr
+
+adduser dariusrod
+enter password for teh server in there and  147147..Dr
+adduser dariusrod sudo === which adds the new limited user to sudo group
+type exit to exit the server
+use ssh connection again but change the root name to username and
+ssh dariusrod@194.195.250.94
+
+mkdir -p ~/.ssh   to make the ssh forlder
+
+-----making ssh connection to your system
+in your local computer open gitbash (important)
+ssh-keygen -b 4096
+$ scp ~/.ssh/id_rsa.pub dariusrod@194.195.250.94:~/.ssh/keys
+the line above copies the ssh public to the server via the ip
+also bear in mind that keys is the name of the file
+
+back to the server
+run this command to change user permission on your server
+sudo chmod 700 ~/.ssh/
+sudo chmod 600 ~/.ssh/*    === this line gives read and write permission to all the files in that directorey
+you can type exit to exit from the server command
+log back in to the server and enter the command
+sudo nano /etc/ssh/sshd_config
+the command above opens nano editor in the file change the passwordAuthentication to no and userBoot to no and
+presss clt x to save and enter to exit
+run the command below to restart the ssh
+sudo systemctl restart sshd
+setting up firlewall :
+sudo apt-get install ufw
+
+then the command
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
+sudo ufw allow ssh
+sudo ufw allow 8000
+sudo ufw enable
+
+deploying
+.
+
+11111111111111111111111111111111111111111111111
+
+-----================================================================
+scp -r folder_you_want_to_copy root@194.195.250.94:~/
+sudo apt-get install python3-pip
+sudo apt-get install python3-venv
+python3 -m venv vnv1
+pip3 install -r requirements.txt
+source vnv1/bin/activate
+
+copying file using scp
+
+
+remember to run python manage.py runserver 0.0.0.0:8000
+so in the brower you can type ip:8000
+
+
+link to linux commands
+https://www.tecmint.com/linux-file-management-commands/
+
+cp banner.png ../media/posts
+to copy files
+
+the lines above are just for testing
+now you need a more reliable way to run the server line apache or nginx
+
+rm -rf directory_name   to remove directory from
+mv filename  path       to move the file
+cp file name path    to copy
+STATIC_DIR =  os.path.join(BASE_DIR, "static")
+Static_DIR = os.
+
+python -m venv  the_name   ==== to create the virtual environment in ubuntu
+
+
+
+
+
